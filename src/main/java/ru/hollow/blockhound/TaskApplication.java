@@ -9,11 +9,12 @@ public class TaskApplication {
 
     /**
      * Инициализация blockhount с исключением из проверок java.util.UUID.randomUUID().
-     * Метод выше блокирующий, но в рамках опробывания либы, я решил его исключить и посмотреть как он отловит
-     * блокирующие вызовы на уровне вызова jdbc драйвера блокирующего.
+     * Метод выше под капотом успользует блокирующий I/O, но пишется, что на самом деле блокировки не происходитб
+     * поэтому он в исключениях и внимание сконцентрированно на блокирующем драйвере для postgresql.
      */
     static {
-        BlockHound.builder()
+        BlockHound
+                .builder()
                 .loadIntegrations()
                 .allowBlockingCallsInside("java.util.UUID", "randomUUID")
                 .install();
