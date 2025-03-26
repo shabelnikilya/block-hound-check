@@ -1,0 +1,4 @@
+databaseChangeLog:
+  - include:
+      file: create_task_ddl.sql
+      relativeToChangelogFile: true
