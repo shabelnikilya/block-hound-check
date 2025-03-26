@@ -1,8 +1,21 @@
-# blockhound demo
+# BlockHound Check: Тестирование обнаружения блокирующих вызовов JDBC
 
-Элементарный разбор работы утилиты blockhound для автоматического обнаружения блокирующих вызовов.
+[![Java](https://img.shields.io/badge/Java-17%2B-blue)](https://openjdk.org/)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4.3-brightgreen)](https://spring.io/projects/spring-boot)
+[![BlockHound](https://img.shields.io/badge/BlockHound-1.0.11.RELEASEE-orange)](https://github.com/reactor/BlockHound)
 
-Тестовое приложение представляет из себя spring boot + webflux.
-Есть единственный демонстрационный эндпоинт POST /v1/tasks, который ходит в БД postgresql  с помощью
-блокирующего драйвера. Если вынести этот блокирующий код в отдельный пул bounded elastic, то blockhound
-ругаться не будет.
+Проект предназначен для проверки работы библиотеки **BlockHound** - инструмента для обнаружения блокирующих вызовов в реактивных приложениях. В частности, проверяется детектирование блокирующих операций JDBC драйвера PostgreSQL.
+
+## Основная цель
+
+Проверить, что BlockHound:
+1. Обнаруживает блокирующий вызов в `PgConnection` драйвера postgresql
+2. При вызове эндпоинта `/v1/tasks` выбрасывается `BlockingOperationError`
+
+## Технологии
+
+- **Java 17**
+- **Spring Boot 3.4.3**
+- **Spring webflux**
+- **BlockHound 1.0.11.RELEASE**
+- **PostgreSQL JDBC Driver**

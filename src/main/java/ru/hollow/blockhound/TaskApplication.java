@@ -18,8 +18,6 @@ public class TaskApplication {
                 .loadIntegrations()
                 .allowBlockingCallsInside("java.util.UUID", "randomUUID")
                 .install();
-
-
     }
 
     public static void main(String[] args) {
